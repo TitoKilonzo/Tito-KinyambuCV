@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tito Kinyambu - Certified IT Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .summary-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            width: 100%;
+            border-radius: 4px;
+            animation: fillSkill 2s ease-in-out;
+        }
+
+        @keyframes fillSkill {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        .job-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .job-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-left-color: #667eea;
+        }
+
+        .job-header {
+            margin-bottom: 15px;
+        }
+
+        .company {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .position {
+            font-size: 1.1rem;
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-style: italic;
+            background: #ecf0f1;
+            padding: 5px 10px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .responsibilities {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .responsibilities li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .responsibilities li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .education-card {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #27ae60;
+            position: relative;
+        }
+
+        .degree {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .university {
+            font-size: 1.1rem;
+            color: #27ae60;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .year {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 5px 10px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .reference-card {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-top: 5px solid #ff6b35;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .reference-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .ref-name {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .ref-position {
+            color: #ff6b35;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .ref-contact {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .floating-nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            min-width: 60px;
+        }
+
+        .nav-toggle {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            margin-bottom: 8px;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-toggle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 18px;
+            height: 2px;
+            background: white;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 -6px 0 white, 0 6px 0 white;
+            transition: all 0.3s ease;
+        }
+
+        .floating-nav.expanded .nav-toggle::before {
+            background: transparent;
+            box-shadow: 0 0 0 white;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .floating-nav.expanded .nav-toggle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 18px;
+            height: 2px;
+            background: white;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        .nav-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .floating-nav.expanded .nav-menu {
+            max-height: 300px;
+        }
+
+        .floating-nav {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1));
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 12px;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            z-index: 1000;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            min-width: 70px;
+            max-width: 280px;
+        }
+
+        .floating-nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .floating-nav:hover::before {
+            opacity: 1;
+        }
+
+        .nav-toggle {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 16px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            margin-bottom: 8px;
+            box-shadow: 
+                0 10px 20px rgba(102, 126, 234, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .nav-toggle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 2px;
+            background: white;
+            border-radius: 1px;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 -7px 0 white, 
+                0 7px 0 white;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-toggle:hover {
+            transform: scale(1.08);
+            box-shadow: 
+                0 15px 30px rgba(102, 126, 234, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.3);
+        }
+
+        .floating-nav.expanded .nav-toggle {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            transform: rotate(90deg);
+        }
+
+        .floating-nav.expanded .nav-toggle::before {
+            background: transparent;
+            box-shadow: 0 0 0 white;
+        }
+
+        .floating-nav.expanded .nav-toggle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 2px;
+            background: white;
+            border-radius: 1px;
+            transform: translate(-50%, -50%) rotate(45deg);
+            box-shadow: 0 0 0 0 white, 0 0 0 white;
+        }
+
+        .floating-nav.expanded .nav-toggle::before {
+            transform: translate(-50%, -50%) rotate(-45deg);
+            background: white;
+        }
+
+        .nav-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+        }
+
+        .floating-nav.expanded .nav-menu {
+            max-height: 400px;
+            opacity: 1;
+        }
+
+        .nav-btn {
+            display: block;
+            padding: 14px 20px;
+            margin: 6px 0;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            min-width: 180px;
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 
+                0 12px 25px rgba(102, 126, 234, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 
+                0 8px 20px rgba(102, 126, 234, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: scale(0.98);
+        }
+
+        /* Professional icons for nav buttons */
+        .nav-btn[href="#summary"] {
+            background-image: linear-gradient(45deg, rgba(52, 152, 219, 0.1), transparent);
+        }
+        .nav-btn[href="#summary"]::after { 
+            content: " 📊"; 
+            float: right; 
+            font-size: 1.1rem;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .nav-btn[href="#summary"]:hover::after { opacity: 1; transform: scale(1.1); }
+
+        .nav-btn[href="#skills"] {
+            background-image: linear-gradient(45deg, rgba(155, 89, 182, 0.1), transparent);
+        }
+        .nav-btn[href="#skills"]::after { 
+            content: " ⚡"; 
+            float: right; 
+            font-size: 1.1rem;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .nav-btn[href="#skills"]:hover::after { opacity: 1; transform: scale(1.1); }
+
+        .nav-btn[href="#experience"] {
+            background-image: linear-gradient(45deg, rgba(46, 204, 113, 0.1), transparent);
+        }
+        .nav-btn[href="#experience"]::after { 
+            content: " 💼"; 
+            float: right; 
+            font-size: 1.1rem;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .nav-btn[href="#experience"]:hover::after { opacity: 1; transform: scale(1.1); }
+
+        .nav-btn[href="#education"] {
+            background-image: linear-gradient(45deg, rgba(230, 126, 34, 0.1), transparent);
+        }
+        .nav-btn[href="#education"]::after { 
+            content: " 🎓"; 
+            float: right; 
+            font-size: 1.1rem;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .nav-btn[href="#education"]:hover::after { opacity: 1; transform: scale(1.1); }
+
+        .nav-btn[href="#references"] {
+            background-image: linear-gradient(45deg, rgba(231, 76, 60, 0.1), transparent);
+        }
+        .nav-btn[href="#references"]::after { 
+            content: " 👥"; 
+            float: right; 
+            font-size: 1.1rem;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .nav-btn[href="#references"]:hover::after { opacity: 1; transform: scale(1.1); }
+
+        .hero-icons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: rgba(102, 126, 234, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Mobile First - Small devices (phones, 320px and up) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+                line-height: 1.2;
+            }
+            
+            .title {
+                font-size: 1.2rem;
+            }
+            
+            .floating-nav {
+                top: 15px;
+                right: 15px;
+                padding: 8px;
+                border-radius: 20px;
+                min-width: 54px;
+                max-width: 240px;
+            }
+            
+            .nav-toggle {
+                width: 38px;
+                height: 38px;
+                margin-bottom: 6px;
+                border-radius: 14px;
+            }
+            
+            .nav-toggle::before {
+                width: 16px;
+                box-shadow: 0 -5px 0 white, 0 5px 0 white;
+            }
+            
+            .floating-nav.expanded .nav-toggle::before {
+                width: 16px;
+            }
+            
+            .floating-nav.expanded .nav-toggle::after {
+                width: 16px;
+            }
+            
+            .nav-btn {
+                padding: 10px 14px;
+                font-size: 0.85rem;
+                min-width: 150px;
+                margin: 4px 0;
+            }
+            
+            .section {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .contact-grid,
+            .skills-grid,
+            .references-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .profile-img {
+                width: 80px;
+                height: 80px;
+                font-size: 32px;
+            }
+            
+            header {
+                padding: 25px 20px;
+            }
+            
+            .job-card {
+                padding: 20px 15px;
+            }
+            
+            .company {
+                font-size: 1.1rem;
+            }
+            
+            .position {
+                font-size: 1rem;
+            }
+            
+            .responsibilities li {
+                font-size: 0.9rem;
+                padding-left: 20px;
+            }
+            
+            .skill-card,
+            .reference-card,
+            .education-card {
+                padding: 15px;
+            }
+            
+            .hero-icons {
+                font-size: 18px;
+                top: 15px;
+                right: 70px; /* Adjusted to not overlap with nav */
+            }
+            
+            /* Hide download section on mobile */
+            .download-section {
+                display: none;
+            }
+        }
+
+        /* Medium devices (tablets, 481px to 768px) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .floating-nav {
+                top: 20px;
+                right: 20px;
+                min-width: 65px;
+                max-width: 260px;
+            }
+            
+            .nav-toggle {
+                width: 44px;
+                height: 44px;
+            }
+            
+            .nav-btn {
+                padding: 12px 18px;
+                font-size: 0.9rem;
+                min-width: 170px;
+            }
+            
+            .section {
+                padding: 30px 25px;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .skills-grid,
+            .references-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-img {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+            
+            header {
+                padding: 35px 25px;
+            }
+        }
+
+        /* Large tablets and small desktops (769px to 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                padding: 20px;
+                max-width: 95%;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .floating-nav {
+                right: 15px;
+                top: 15px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .references-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Extra large devices (1025px and up) */
+        @media (min-width: 1025px) {
+            .container {
+                max-width: 1200px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .references-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Ultra-wide screens (1400px and up) */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1400px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Landscape orientation adjustments */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .floating-nav {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                padding: 6px;
+            }
+            
+            .nav-toggle {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .nav-btn {
+                padding: 8px 10px;
+                font-size: 0.75rem;
+                min-width: 100px;
+            }
+            
+            .profile-img {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            
+            header {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            /* Hide download section on landscape phones */
+            .download-section {
+                display: none;
+            }
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .skill-bar,
+            .nav-btn,
+            .download-btn {
+                border: 0.5px solid rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                color-scheme: dark;
+            }
+        }
+
+        /* Reduced motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .tech-pattern {
+                animation: none;
+            }
+            
+            .profile-img {
+                animation: none;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (pointer: coarse) {
+            .nav-btn,
+            .download-btn {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            .contact-item {
+                min-height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+        }
+
+        .download-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .download-btn {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Enhanced download button for larger screens */
+        @media (min-width: 769px) {
+            .download-btn {
+                padding: 18px 40px;
+                font-size: 1.2rem;
+                border-radius: 60px;
+            }
+            
+            .download-btn::after {
+                content: '⬇️';
+                margin-left: 10px;
+                font-size: 1rem;
+                transition: transform 0.3s ease;
+            }
+            
+            .download-btn:hover::after {
+                transform: translateY(2px);
+            }
+        }
+
+        .tech-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: techMove 20s linear infinite;
+        }
+
+        @keyframes techMove {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="tech-pattern"></div>
+    
+    <nav class="floating-nav" id="floatingNav">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"></button>
+        <div class="nav-menu" id="navMenu">
+            <a href="#summary" class="nav-btn">Summary</a>
+            <a href="#skills" class="nav-btn">Skills</a>
+            <a href="#experience" class="nav-btn">Experience</a>
+            <a href="#education" class="nav-btn">Education</a>
+            <a href="#references" class="nav-btn">References</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <div class="hero-icons">💻 🔧 🌐</div>
+            <div class="profile-img">TK</div>
+            <h1>Tito Kilonzo Kinyambu</h1>
+            <div class="title">Certified IT Professional</div>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <strong>📞 Phone</strong><br>
+                    +254799713796
+                </div>
+                <div class="contact-item">
+                    <strong>✉️ Email</strong><br>
+                    TITOKILONZO3@GMAIL.COM
+                </div>
+            </div>
+        </header>
+
+        <section id="summary" class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="summary-text">
+                Certified IT Professional with a solid foundation in system integration, network security, and software development. Experienced in managing projects, solving IT issues, and collaborating on team projects to improve user experience. Quick to learn new technologies and focused on finding efficient solutions to meet changing needs. Adaptable, analytical, and committed to continuous improvement in IT systems and services.
+            </p>
+        </section>
+
+        <section id="skills" class="section">
+            <h2 class="section-title">Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-name">Technical Troubleshooting</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-name">Cybersecurity Practices</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-name">Network Configuration & Management</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-name">Communication Proficiency</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-name">Mobile Application Development</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-name">Data Interpretation</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <h2 class="section-title">Work Experience</h2>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="company">AIC Kanzinwa Child & Youth Development Centre</div>
+                    <div class="position">Training and Support Specialist</div>
+                    <div class="duration">May 2025 – Present</div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Delivered comprehensive training programs in Microsoft Office Suite (Word, Excel, PowerPoint, Outlook) to staff and students.</li>
+                    <li>Provided technical support and troubleshooting for ICT systems and equipment.</li>
+                    <li>Enhanced digital literacy across the organization through structured training modules.</li>
+                    <li>Served as primary ICT Assistant, maintaining computer systems and resolving technical issues.</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="company">Hatikvah Communications & General Engineering Ltd</div>
+                    <div class="position">IT Support & Consultant</div>
+                    <div class="duration">Feb 2025 – May 2025</div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Implemented and maintained comprehensive ICT systems, resolving hardware, software, and network issues to ensure operational continuity.</li>
+                    <li>Strengthened cybersecurity infrastructure through proactive system updates, regular security log monitoring, and implementation of industry-standard protection measures.</li>
+                    <li>Configured and optimized network connectivity solutions, resulting in enhanced communication efficiency across departments.</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="company">AIC Kanzinwa Child & Youth Development Centre</div>
+                    <div class="position">IT Support</div>
+                    <div class="duration">Aug 2023 – Feb 2024</div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Resolved complex technical issues swiftly, reducing system downtime and maintaining business continuity.</li>
+                    <li>Delivered training sessions on new software applications to client staff, enhancing their technical proficiency.</li>
+                    <li>Developed and maintained strong client relationships through regular communication and outstanding service.</li>
+                    <li>Monitored emerging technology trends to advise clients on potential investments and upgrades.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+                <div class="degree">Bachelor's Degree in Information Technology</div>
+                <div class="university">Kabarak University</div>
+                <div class="year">2021 – 2025</div>
+            </div>
+        </section>
+
+        <section id="references" class="section">
+            <h2 class="section-title">References</h2>
+            <div class="references-grid">
+                <div class="reference-card">
+                    <div class="ref-name">Joshua K. Mutisya</div>
+                    <div class="ref-position">Project Director - AIC Kanzinwa CDC</div>
+                    <div class="ref-contact">
+                        📞 +254726156328<br>
+                        ✉️ info@aickanzinwacdc.org
+                    </div>
+                </div>
+                
+                <div class="reference-card">
+                    <div class="ref-name">Honorate John</div>
+                    <div class="ref-position">Organizational Social Worker - AIC Kanzinwa CDC</div>
+                    <div class="ref-contact">
+                        📞 +254716851005<br>
+                        ✉️ info@aickanzinwacdc.org
+                    </div>
+                </div>
+                
+                <div class="reference-card">
+                    <div class="ref-name">Dr. Simon Chege</div>
+                    <div class="ref-position">Manager, Energy & Special Projects - Hatikvah Communications</div>
+                    <div class="ref-contact">
+                        📞 +254720320082<br>
+                        ✉️ simon.chege@hatikvah.co.ke<br>
+                        ✉️ schegemathinji@gmail.com
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="download-section">
+            <button class="download-btn" onclick="downloadCV()">
+                📄 Download CV as PDF
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced responsive navigation handling
+        function initializeResponsiveFeatures() {
+            const nav = document.querySelector('.floating-nav');
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            const downloadSection = document.querySelector('.download-section');
+            
+            // Toggle navigation menu
+            function toggleNavMenu() {
+                nav.classList.toggle('expanded');
+                
+                // Update aria-expanded attribute for accessibility
+                const isExpanded = nav.classList.contains('expanded');
+                navToggle.setAttribute('aria-expanded', isExpanded);
+            }
+            
+            // Close navigation when clicking on a nav item
+            function closeNavOnItemClick() {
+                nav.classList.remove('expanded');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+            
+            // Initialize toggle functionality
+            navToggle.addEventListener('click', toggleNavMenu);
+            
+            // Close nav when clicking nav items
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', closeNavOnItemClick);
+            });
+            
+            // Close nav when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!nav.contains(e.target) && nav.classList.contains('expanded')) {
+                    closeNavOnItemClick();
+                }
+            });
+            
+            // Handle keyboard navigation
+            navToggle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleNavMenu();
+                }
+            });
+            
+            function adjustNavigation() {
+                const screenWidth = window.innerWidth;
+                const screenHeight = window.innerHeight;
+                const isLandscape = screenHeight < screenWidth;
+                const isShortScreen = screenHeight < 600;
+                const isLandscapePhone = isLandscape && isShortScreen && screenWidth <= 896;
+                
+                // Show/hide download section based on device
+                if (screenWidth <= 480 || isLandscapePhone) {
+                    downloadSection.style.display = 'none';
+                } else {
+                    downloadSection.style.display = 'block';
+                }
+                
+                // Auto-collapse nav on very small screens when not in use
+                if (screenWidth <= 380) {
+                    closeNavOnItemClick();
+                }
+            }
+            
+            // Adjust on load and resize
+            adjustNavigation();
+            window.addEventListener('resize', adjustNavigation);
+            window.addEventListener('orientationchange', () => {
+                setTimeout(adjustNavigation, 100);
+                closeNavOnItemClick(); // Auto-close on orientation change
+            });
+        }
+
+        // Enhanced smooth scrolling with offset for mobile
+        function initializeSmoothScrolling() {
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(btn.getAttribute('href'));
+                    if (target) {
+                        const offset = window.innerWidth <= 768 ? 10 : 80;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Enhanced download functionality
+        function downloadCV() {
+            const nav = document.querySelector('.floating-nav');
+            const downloadSection = document.querySelector('.download-section');
+            const originalNavPosition = nav.style.position;
+            
+            // Hide elements for cleaner PDF
+            nav.style.display = 'none';
+            downloadSection.style.display = 'none';
+            
+            // Optimize for print
+            document.body.style.background = 'white';
+            
+            // Set document title for PDF filename
+            document.title = "Tito_Kinyambu_CV";
+            
+            // Add print-specific styles
+            const printStyles = document.createElement('style');
+            printStyles.id = 'print-styles';
+            printStyles.textContent = `
+                @media print {
+                    .floating-nav, .download-section { display: none !important; }
+                    .section { page-break-inside: avoid; margin-bottom: 15px !important; }
+                    .job-card { page-break-inside: avoid; }
+                    body { font-size: 12px !important; }
+                    .container { max-width: none !important; margin: 0 !important; padding: 10mm !important; }
+                }
+            `;
+            document.head.appendChild(printStyles);
+            
+            // Trigger print dialog
+            window.print();
+            
+            // Restore elements after print
+            setTimeout(() => {
+                nav.style.display = 'block';
+                downloadSection.style.display = 'block';
+                document.body.style.background = '';
+                
+                const printStylesEl = document.getElementById('print-styles');
+                if (printStylesEl) {
+                    printStylesEl.remove();
+                }
+                
+                // Restore navigation position
+                if (window.innerWidth <= 480) {
+                    nav.style.position = 'static';
+                } else {
+                    nav.style.position = originalNavPosition || 'fixed';
+                }
+            }, 1000);
+        }
+
+        // Enhanced intersection observer for better performance
+        function initializeScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -30px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, observerOptions);
+
+            // Initially hide sections for animation
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.6s ease';
+                observer.observe(section);
+            });
+        }
+
+        // Enhanced parallax with performance optimization
+        function initializeParallax() {
+            let ticking = false;
+            
+            function updateParallax() {
+                const scrolled = window.pageYOffset;
+                const techPattern = document.querySelector('.tech-pattern');
+                if (techPattern && window.innerWidth > 768) {
+                    techPattern.style.transform = `translateY(${scrolled * 0.3}px)`;
+                }
+                ticking = false;
+            }
+            
+            function requestParallaxUpdate() {
+                if (!ticking) {
+                    requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            }
+            
+            // Only enable parallax on larger screens for better performance
+            if (window.innerWidth > 768) {
+                window.addEventListener('scroll', requestParallaxUpdate, { passive: true });
+            }
+        }
+
+        // Touch gesture support for mobile
+        function initializeTouchGestures() {
+            if ('ontouchstart' in window) {
+                let startY = 0;
+                let startX = 0;
+                
+                document.addEventListener('touchstart', (e) => {
+                    startY = e.touches[0].clientY;
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+                
+                document.addEventListener('touchmove', (e) => {
+                    // Allow native scrolling
+                }, { passive: true });
+            }
+        }
+
+        // Initialize all features when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeResponsiveFeatures();
+            initializeSmoothScrolling();
+            initializeScrollAnimations();
+            initializeParallax();
+            initializeTouchGestures();
+            
+            // Add loading animation
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Handle orientation changes
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                // Recalculate layout after orientation change
+                window.dispatchEvent(new Event('resize'));
+            }, 100);
+        });
+    </script>
+</body>
+</html>
